@@ -135,8 +135,8 @@ def profile(user_id):
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('query')
-    #safe_query = escape(query) if query else ""
-    return render_template('search.html', query=query)
+    safe_query = escape(query) if query else ""
+    return render_template('search.html', query=safe_query)
 
 @app.route('/forum')
 def forum():
